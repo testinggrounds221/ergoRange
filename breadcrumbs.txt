@@ -1,0 +1,6 @@
+
+
+Venv in JPYNB https://towardsdatascience.com/create-virtual-environment-using-virtualenv-and-add-it-to-jupyter-notebook-6e1bf4e03415
+PIP NOT FOUND https://stackoverflow.com/questions/18363022/importerror-no-module-named-pip - python3 -m ensurepip
+
+

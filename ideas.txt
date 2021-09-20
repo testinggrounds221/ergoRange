@@ -1,0 +1,15 @@
+for Graphical:
+Make limbs as couloured varying with optimal angle
+how accurate is the position
+
+pass image obj to funciton
+
+result.poselandmarks -> Coordinates of joints
+The idea is to start at red: (1.0,0.0,0.0).
+Then increase the green to get yellow: (1.0,1.0,0.0).
+Then decrease the red to get green: (0.0,1.0,0.0).
+
+image = cv2.line(image,
+	tuple(np.multiply(pointB, [640, 480]).astype(int)),
+	tuple(np.multiply(pointE, [640, 480]).astype(int)),
+	color, 9)
