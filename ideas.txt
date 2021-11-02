@@ -13,3 +13,7 @@ image = cv2.line(image,
 	tuple(np.multiply(pointB, [640, 480]).astype(int)),
 	tuple(np.multiply(pointE, [640, 480]).astype(int)),
 	color, 9)
+
+Video Download and plot
+get Insights from recorded CSV
+Plot Real time ~ https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Matplotlib/09-LiveData

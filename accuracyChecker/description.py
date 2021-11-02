@@ -104,25 +104,22 @@ with mp_pose.Pose(min_detection_confidence=0.5,
             # Visualize angle
             cv2.putText(image, getDescription(0, angle1, KNEE_RANGE),
                         tuple(np.multiply(pointB, [640, 480]).astype(int)),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2,
-                        cv2.LINE_AA)
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
 
             cv2.putText(image, getDescription(1, angle1, ELBOW_RANGE),
                         tuple(np.multiply(pointB, [640, 480]).astype(int)),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2,
-                        cv2.LINE_AA)
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_4)
 
             cv2.putText(image, getDescription(3, angle3, SPINE_RANGE),
                         tuple(np.multiply(pointH, [640, 480]).astype(int)),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2,
-                        cv2.LINE_AA)
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+
             color1 = getClrFromPercentage(
                 getPercentageFromAngle(angle1, ELBOW_RANGE))
             image = cv2.line(
                 image, tuple(np.multiply(pointA, [640, 480]).astype(int)),
                 tuple(np.multiply(pointB, [640, 480]).astype(int)), color1,
                 LINE_WIDTH)
-
             image = cv2.line(
                 image, tuple(np.multiply(pointB, [640, 480]).astype(int)),
                 tuple(np.multiply(pointC, [640, 480]).astype(int)), color1,
@@ -134,7 +131,6 @@ with mp_pose.Pose(min_detection_confidence=0.5,
                 image, tuple(np.multiply(pointD, [640, 480]).astype(int)),
                 tuple(np.multiply(pointE, [640, 480]).astype(int)), color2,
                 LINE_WIDTH)
-
             image = cv2.line(
                 image, tuple(np.multiply(pointE, [640, 480]).astype(int)),
                 tuple(np.multiply(pointF, [640, 480]).astype(int)), color2,
@@ -146,7 +142,6 @@ with mp_pose.Pose(min_detection_confidence=0.5,
                 image, tuple(np.multiply(pointG, [640, 480]).astype(int)),
                 tuple(np.multiply(pointH, [640, 480]).astype(int)), color2,
                 LINE_WIDTH)
-
             image = cv2.line(
                 image, tuple(np.multiply(pointH, [640, 480]).astype(int)),
                 tuple(np.multiply(pointI, [640, 480]).astype(int)), color2,
