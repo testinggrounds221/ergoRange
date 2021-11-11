@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 plt.style.use('fivethirtyeight')
-FIELD_NAMES = ["Time", "Elbow", "Knee", "Spine"]
 x_vals = []
 y_vals = []
+
+FIELD_NAMES = ["Time", "Elbow", "Knee", "Spine"]
 
 plt.plot([], [], label=FIELD_NAMES[1])
 plt.plot([], [], label=FIELD_NAMES[2])
@@ -59,8 +60,14 @@ def animate(i):
     ax.set_ylim((current_ymin - 5), (current_ymax + 5))
 
 
-ani = FuncAnimation(plt.gcf(), animate, interval=1000)
+def start():
 
-plt.legend()
-plt.tight_layout()
-plt.show()
+    ani = FuncAnimation(plt.gcf(), animate, interval=1000)
+
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
+
+if __name__ == "__main__":
+    start()

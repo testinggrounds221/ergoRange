@@ -1,8 +1,18 @@
-import time
+import time, threading
 
-t = time.time()
+# t = time.time()
 
-while True:
-    if time.time() - t > 1:
+# while True:
+#     if time.time() - t > 1:
+#         print("Heyy")
+#         t = time.time()
+
+
+def writeData():
+    while (True):
+        time.sleep(2)
         print("Heyy")
-        t = time.time()
+
+
+thread = threading.Thread(target=writeData)
+thread.start()
