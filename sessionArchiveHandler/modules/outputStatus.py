@@ -6,7 +6,7 @@ import threading
 
 
 def printStatus(session, pointer):
-    print(pointer)
+    # print(pointer)
     df = pd.read_csv(session + '/angle.csv')
     data = df.iloc[pointer - 5:pointer, :]
     elbowMean = data['Elbow'].mean()
@@ -15,9 +15,21 @@ def printStatus(session, pointer):
 
     # IF MEANS ARE NOT IN RANGE, PRINT ERROR MSG AND PLAY SOUND HERE
     # winsound.Beep(500, 1000)
-    print("elbowMean ", elbowMean)
-    print("kneeMean ", kneeMean)
-    print("spineMean ", spineMean)
+
+    if (elbowMean < 75):
+        print("Elbows are too Constricted. May lead to Muscular Cramps")
+
+    if (spineMean < 75):
+        print("Spine region is too bent. May lead to Hunching")
+    if (spineMean > 130):
+        print("Spine region is in bad posture. May lead to chronic back pain")
+
+    if (kneeMean < 75):
+        print(
+            "Knee region is consrtricted. May lead to uneven Pressure Distribution"
+        )
+    if (kneeMean > 130):
+        print("Knee region is in bad posture. May lead to knee pain")
 
 
 def output(session):
