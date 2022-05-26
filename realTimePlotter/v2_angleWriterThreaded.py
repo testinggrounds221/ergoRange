@@ -22,8 +22,8 @@ angle3 = 0
 # Elbow, Knee, Spine
 mp_pose = mp.solutions.pose
 
-# cap = cv2.VideoCapture("s.mp4")
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture("s.mp4")
+# cap = cv2.VideoCapture(0)
 
 with open('accuracy.csv', 'w') as csv_file:
     csv_writer = csv.DictWriter(csv_file, fieldnames=FIELD_NAMES)
@@ -168,17 +168,20 @@ def detectPose():
                 angle3 = calculate_angle(pointG, pointH, pointI)
 
                 # Visualize angle
-                # cv2.putText(image, getDescription(0, angle1, KNEE_RANGE),
-                #             tuple(np.multiply(pointB, [640, 480]).astype(int)),
-                #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(image, getDescription(0, angle1, KNEE_RANGE),
+                            tuple(np.multiply(pointB, [640, 480]).astype(int)),
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1,
+                            cv2.LINE_AA)
 
-                # cv2.putText(image, getDescription(1, angle1, ELBOW_RANGE),
-                #             tuple(np.multiply(pointB, [640, 480]).astype(int)),
-                #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_4)
+                cv2.putText(image, getDescription(1, angle1, ELBOW_RANGE),
+                            tuple(np.multiply(pointB, [640, 480]).astype(int)),
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1,
+                            cv2.LINE_4)
 
-                # cv2.putText(image, getDescription(3, angle3, SPINE_RANGE),
-                #             tuple(np.multiply(pointH, [640, 480]).astype(int)),
-                #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(image, getDescription(3, angle3, SPINE_RANGE),
+                            tuple(np.multiply(pointH, [640, 480]).astype(int)),
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1,
+                            cv2.LINE_AA)
 
                 p1 = getPercentageFromAngle(angle1, ELBOW_RANGE)
                 color1 = getClrFromPercentage(p1)

@@ -16,15 +16,15 @@ def printStatus(session, pointer):
     # IF MEANS ARE NOT IN RANGE, PRINT ERROR MSG AND PLAY SOUND HERE
     # winsound.Beep(500, 1000)
 
-    if (elbowMean < 75):
+    if (elbowMean < 50):
         print("Elbows are too Constricted. May lead to Muscular Cramps")
 
-    if (spineMean < 75):
+    if (spineMean < 50):
         print("Spine region is too bent. May lead to Hunching")
     if (spineMean > 130):
         print("Spine region is in bad posture. May lead to chronic back pain")
 
-    if (kneeMean < 75):
+    if (kneeMean < 50):
         print(
             "Knee region is consrtricted. May lead to uneven Pressure Distribution"
         )
@@ -33,7 +33,7 @@ def printStatus(session, pointer):
 
 
 def output(session):
-    time.sleep(5)
+    time.sleep(2)
     pointer = 5
     while (True):
         printStatus(session, pointer)

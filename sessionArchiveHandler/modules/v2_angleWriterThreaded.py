@@ -162,17 +162,20 @@ def detectPose():
                 angle3 = calculate_angle(pointG, pointH, pointI)
 
                 # Visualize angle
-                # cv2.putText(image, getDescription(0, angle1, KNEE_RANGE),
-                #             tuple(np.multiply(pointB, [640, 480]).astype(int)),
-                #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(image, getDescription(0, angle1, KNEE_RANGE),
+                            tuple(np.multiply(pointB, [640, 480]).astype(int)),
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2,
+                            cv2.LINE_AA)
 
-                # cv2.putText(image, getDescription(1, angle1, ELBOW_RANGE),
-                #             tuple(np.multiply(pointB, [640, 480]).astype(int)),
-                #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_4)
+                cv2.putText(image, getDescription(1, angle1, ELBOW_RANGE),
+                            tuple(np.multiply(pointB, [640, 480]).astype(int)),
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2,
+                            cv2.LINE_4)
 
-                # cv2.putText(image, getDescription(3, angle3, SPINE_RANGE),
-                #             tuple(np.multiply(pointH, [640, 480]).astype(int)),
-                #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(image, getDescription(3, angle3, SPINE_RANGE),
+                            tuple(np.multiply(pointH, [640, 480]).astype(int)),
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1,
+                            cv2.LINE_AA)
 
                 p1 = getPercentageFromAngle(angle1, ELBOW_RANGE)
                 color1 = getClrFromPercentage(p1)
@@ -210,7 +213,7 @@ def detectPose():
             except Exception as e:
                 print(e)
                 pass
-
+            image = cv2.resize(image, (960, 540))
             cv2.imshow('Ergonomic Check', image)
 
             if cv2.waitKey(10) & 0xFF == ord('q'):
