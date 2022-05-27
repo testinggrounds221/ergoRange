@@ -3,6 +3,22 @@ import time
 from os import system
 import winsound
 import threading
+import screen_brightness_control as sbc
+# set flags for user config
+initBrightness = sbc.get_brightness()[0]
+isPlaySound = True
+isDimScreen = True
+
+
+def notifyUser():
+    print("Notifying User...")
+    if isPlaySound:
+        winsound.Beep(500, 5000)
+    if isDimScreen: sbc.set_brightness(initBrightness - 20)
+
+
+def normalConfig():
+    if isDimScreen: sbc.set_brightness(initBrightness)
 
 
 def printStatus(session, pointer):
@@ -18,18 +34,33 @@ def printStatus(session, pointer):
 
     if (elbowMean < 50):
         print("Elbows are too Constricted. May lead to Muscular Cramps")
+        notifyUser()
+    else:
+        normalConfig()
 
     if (spineMean < 50):
         print("Spine region is too bent. May lead to Hunching")
+    #     notifyUser()
+    # else:
+    #     normalConfig()
     if (spineMean > 130):
         print("Spine region is in bad posture. May lead to chronic back pain")
+    #     notifyUser()
+    # else:
+    #     normalConfig()
 
     if (kneeMean < 50):
         print(
             "Knee region is consrtricted. May lead to uneven Pressure Distribution"
         )
+    #     notifyUser()
+    # else:
+    #     normalConfig()
     if (kneeMean > 130):
         print("Knee region is in bad posture. May lead to knee pain")
+    #     notifyUser()
+    # else:
+    #     normalConfig()
 
 
 def output(session):
